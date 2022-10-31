@@ -1,4 +1,7 @@
 import BriefPlants from "../components/BriefPlants";
+import signup from "../assets/signup.svg";
+import addpost from "../assets/addpost.svg";
+import getpaid from "../assets/getpaid.svg";
 
 const HomePage = () => {
   return (
@@ -14,6 +17,7 @@ const HomePage = () => {
         </h5>
         <button className="hero-button">See current plants</button>
       </div>
+
       <BriefPlants />
     </>
   );

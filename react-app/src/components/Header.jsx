@@ -6,7 +6,7 @@ const Header = () => {
       <img src={logo} alt="houseplant logo" />
       <div className="navigation">
         <p>Current Auctions</p>
-        <p>News</p>
+        <p>About</p>
         <p>FAQ</p>
         <p>Sell</p>
       </div>
