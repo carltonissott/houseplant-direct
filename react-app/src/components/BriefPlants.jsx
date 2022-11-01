@@ -47,8 +47,8 @@ const SAMPLE_DATA = [
 
 const BriefPlants = () => {
   return (
-    <>
-      <h3 id="home-subtitle">These plants are ending soon:</h3>
+    <div className="featuredplants">
+      <h3 id="home-subtitle">Featured Plants:</h3>
       <div className="modal">
         <div className="plant-modal">
           {SAMPLE_DATA.map((element) => (
@@ -62,7 +62,8 @@ const BriefPlants = () => {
           ))}
         </div>
       </div>
-    </>
+      <button className="hero-button">See all current auctions.</button>
+    </div>
   );
 };
 

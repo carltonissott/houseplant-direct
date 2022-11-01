@@ -1,7 +1,5 @@
 import BriefPlants from "../components/BriefPlants";
-import signup from "../assets/signup.svg";
-import addpost from "../assets/addpost.svg";
-import getpaid from "../assets/getpaid.svg";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
@@ -15,7 +13,9 @@ const HomePage = () => {
           The newest way to auction and buy plants online with no fees, insured
           shipping, and a money-back guarantee.{" "}
         </h5>
-        <button className="hero-button">See current plants</button>
+        <Link to="/listings">
+          <button className="hero-button">See current plants</button>
+        </Link>
       </div>
 
       <BriefPlants />

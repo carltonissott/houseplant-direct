@@ -9,7 +9,7 @@ const PlantCard = (props) => {
         <h4>{props.time}</h4>
       </div>
       <div className="user-description">
-        <img src="https://img.icons8.com/ios/50/FFFFFF/username.png" />
+        <img src="https://img.icons8.com/ios/50/FFFFFF/username.png" alt="user icon" />
         <h4>{props.user}</h4>
       </div>
     </div>

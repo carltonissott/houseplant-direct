@@ -1,16 +1,29 @@
 import logo from "../assets/logo.png";
+import { NavLink, Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <header>
-      <img src={logo} alt="houseplant logo" />
+      <Link id="logo" to="/">
+        <img src={logo} alt="houseplant logo" />
+      </Link>
       <div className="navigation">
-        <p>Current Auctions</p>
-        <p>About</p>
-        <p>FAQ</p>
-        <p>Sell</p>
+        <NavLink className="header-link" to="listings">
+          Current Auctions
+        </NavLink>
+        <NavLink className="header-link" to="about">
+          About
+        </NavLink>
+        <NavLink className="header-link" to="faq">
+          FAQ
+        </NavLink>
+        <NavLink className="header-link" to="sell">
+          Sell
+        </NavLink>
       </div>
-      <button className="hero-button">+ Sign Up</button>
+      <NavLink to="signup">
+        <button className="hero-button">+ Sign Up</button>
+      </NavLink>
     </header>
   );
 };
