@@ -22,7 +22,7 @@ footer {
 
 header {
   display: grid;
-  grid-template-columns: 6fr 3fr 2fr;
+  grid-template-columns: 6fr 3fr 1.5fr;
   color: white;
   text-align: center;
   align-items: center;
@@ -373,4 +373,43 @@ header img {
   color: #1da756;
   text-decoration: none;
   font-weight: 500;
+}
+
+.notloggedin{
+  text-align: center;
+  color: white;
+  font-size: 60px;
+}
+
+#profilepage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin: 0% 10%;
+}
+
+.userInfo{
+  color: white;
+  font-size: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.userInfo h2{
+  padding: 0;
+  margin: 10px;
+}
+
+.my-listings{
+  display: flex;
+  flex-direction: column;
+
+}
+.my-listing-card{
+  display: flex;
+  background-color: white;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
 }
