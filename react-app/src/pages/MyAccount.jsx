@@ -7,9 +7,12 @@ import { userActions } from "../store/userSlice";
 const MyAccount = () => {
   const userStatus = useSelector((state) => state.user.loggedIn);
   const userName = useSelector((state) => state.user.firstname);
-  const [currentListings, setCurrentListings] = useState([])
-
+  const [currentListings, setCurrentListings] = useState([]);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
+  const loadStatusHandler = ()=>{
+    setLoading(true)
+  }
   const logoutHandler = () => {
     dispatch(userActions.logOutUser());
   };
@@ -31,9 +34,18 @@ const MyAccount = () => {
       );
       const currentListingsJSON = await currentListings.json();
       const currentListingsArray = Object.values(currentListingsJSON);
-      setCurrentListings(currentListingsArray)
+      setCurrentListings(currentListingsArray);
     };
-    myListings();
+
+    const timer1 = setTimeout(() => {
+      setLoading(true);
+      myListings();
+    }, 2000);
+
+    return () => {
+      clearTimeout(timer1);
+      setLoading(false);
+    };
   }, [userName]);
 
   if (!userStatus) {
@@ -53,16 +65,28 @@ const MyAccount = () => {
         </div>
         <div className="my-listings">
           <h3 className="subheading">My Listings:</h3>
-          {currentListings.map((item)=>(
-            <MyListings title={item.title} description={item.description} price={item.price} ending={item.endingdate} img={item.image} />
-          ))}
-          
+          {loading === false && <h3 className="subheading">Loading...</h3>}
+          {currentListings.length === 0 ? (
+            <h3 className="subheading">No listings! Add one below!</h3>
+          ) : (
+            currentListings.map((item) => (
+              <MyListings
+                key={item.title}
+                title={item.title}
+                description={item.description}
+                price={item.price}
+                ending={item.endingdate}
+                img={item.image}
+
+              />
+            ))
+          )}
+
           <Link to="/addlisting">
             <button className="hero-button">+Add Listing</button>
           </Link>
         </div>
         <button onClick={logoutHandler} className="hero-button">
-          {" "}
           Logout
         </button>
       </div>

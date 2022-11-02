@@ -2,12 +2,18 @@ import { useSelector } from "react-redux";
 
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { storage } from "../firebase";
+import { useState } from "react";
+import loading from "../assets/loading.gif";
+import { useNavigate } from "react-router-dom";
 
 const AddListing = () => {
-
+  const [isLoading, setIsLoading] = useState(false);
   const userName = useSelector((state) => state.user.firstname);
+  const date = new Date().toJSON().slice(0,10)
+  const navigate =  useNavigate()
 
   const onSubmitHandler = (e) => {
+    setIsLoading(true);
     e.preventDefault();
     console.log(e);
     const listing = {
@@ -51,6 +57,8 @@ const AddListing = () => {
             description: e.target[4].value,
           };
           uploadData(listingupdated);
+          setIsLoading(false);
+          navigate('/myaccount')
         });
       }
     );
@@ -83,35 +91,71 @@ const AddListing = () => {
     addListingToUser();
   };
 
-  return (
-    <div className=" signup-div">
-      <h3>Add your plant!</h3>
-      <form className="signup-form listing-form" onSubmit={onSubmitHandler}>
-        <label htmlFor="title">Listing Title:</label>
-        <input id="title" type="text" placeholder="Your Listing Title"></input>
-        <label id="plantimagelabel" htmlFor="plantimage">
-          Upload Picture:
-        </label>
-        <input
-          type="file"
-          name="plantimage"
-          id="plantimage"
-          accept=".jpg,.png,.jpeg"
-        />
-        <label htmlFor="price">Price:</label>
-        <input id="price" type="number" placeholder="$69"></input>
-        <label htmlFor="endingdate">Ending Date:</label>
-        <input id="endingdate" type="date" />
-        <label htmlFor="description">Description:</label>
-        <textarea
-          name="description"
-          id="description"
-          placeholder="Write all about your plant here! Be sure to include details about size, leaf count, varigation, etc.!"
-        />
-        <button className="hero-button">Submit!</button>
-      </form>
-    </div>
-  );
+  if (userName === "") {
+    return (
+      <h3 className="notloggedin">
+        Uh oh! Please login first before accessing this page!
+      </h3>
+    );
+  } else {
+    return (
+      <>
+        {isLoading && (
+          <div className=" signup-div">
+            <h3>Add your plant!</h3>
+            <div id="loading">
+              <h4>Loading...</h4>
+              <img src={loading} />
+            </div>
+          </div>
+        )}
+        {!isLoading && (
+          <div className=" signup-div">
+            <h3>Add your plant!</h3>
+            <form
+              className="signup-form listing-form"
+              onSubmit={onSubmitHandler}
+            >
+              <label htmlFor="title">Listing Title:</label>
+              <input
+                id="title"
+                type="text"
+                placeholder="Your Listing Title"
+                required
+              ></input>
+              <label id="plantimagelabel" htmlFor="plantimage">
+                Upload Picture:
+              </label>
+              <input
+                type="file"
+                name="plantimage"
+                id="plantimage"
+                accept=".jpg,.png,.jpeg"
+                required
+              />
+              <label htmlFor="price">Price:</label>
+              <input
+                id="price"
+                type="number"
+                placeholder="$69"
+                required
+              ></input>
+              <label htmlFor="endingdate">Ending Date:</label>
+              <input id="endingdate" type="date" min={date} max="2026-12-02" required />
+              <label htmlFor="description">Description:</label>
+              <textarea
+                name="description"
+                id="description"
+                placeholder="Write all about your plant here! Be sure to include details about size, leaf count, varigation, etc.!"
+                required
+              />
+              <button className="hero-button">Submit!</button>
+            </form>
+          </div>
+        )}
+      </>
+    );
+  }
 };
 
 export default AddListing;

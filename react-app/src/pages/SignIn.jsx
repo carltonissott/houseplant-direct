@@ -1,8 +1,11 @@
-import { Link, Navigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { userActions } from "../store/userSlice";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
   const onSubmitHandler = (e) => {
     e.preventDefault();
@@ -21,7 +24,7 @@ const SignIn = () => {
         if (foundUser.password === userAuth.password) {
           console.log("success!");
           dispatch(userActions.logInUser(foundUser.firstname));
-          return <Navigate to="/myaccount" />;
+          navigate("/myaccount");
         } else {
           console.log("no");
         }

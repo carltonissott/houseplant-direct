@@ -437,6 +437,10 @@ textarea {
   border-radius: 10px;
 }
 
+.deleteicon{
+  cursor: pointer;
+}
+
 .my-listing-card h3 {
   margin: 20px;
   font-weight: 300;
@@ -450,5 +454,20 @@ textarea {
 
 .listing-form label{
   padding-top: 10px;
+  
+}
+
+#loading{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 500px;
+  background-color: white;
+}
+
+#loadingicon{
+  width: 50px;
+  height: 50px;
   
 }
