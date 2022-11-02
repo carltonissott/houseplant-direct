@@ -13,7 +13,7 @@ const SignUp = () => {
     };
     console.log(user);
     const addUser = async (user) => {
-      const response = await fetch(
+       await fetch(
         "https://houseplantdirect-default-rtdb.firebaseio.com/users.json",
         {
           method: "POST",
@@ -35,7 +35,7 @@ const SignUp = () => {
         Just fill in your email, name, and password, and you'll be buying plants
         in no time!
       </h4>
-      <form onSubmit={onSubmitHandler} className="signup-form">
+      <form onSubmit={onSubmitHandler} className="signup-form hiddenlabel">
         <label htmlFor="firstname">First Name:</label>
         <input id="firstname" type="text" placeholder="First Name" required />
         <label htmlFor="lastname">Last Name:</label>

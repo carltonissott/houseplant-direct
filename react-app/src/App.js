@@ -7,6 +7,7 @@ import Listings from "./pages/Listings";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import MyAccount from "./pages/MyAccount";
+import AddListing from "./pages/AddListing";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/myaccount" element={<MyAccount />} />
+        <Route path="/addlisting" element={<AddListing />} />
 
       </Routes>
       {/* <Footer /> */}
