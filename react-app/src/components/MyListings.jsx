@@ -24,18 +24,24 @@ const MyListings = (props) => {
       const listingIndex = currentListingsArray.indexOf(
         currentListingsArray.find((x) => x.title === e.target.id)
       );
+
       const deleted = listingKeys[listingIndex];
+
       const currentListingsP = await fetch(
-        `https://houseplantdirect-default-rtdb.firebaseio.com/users/${userKey}/currentlistings.json`
+        `https://houseplantdirect-default-rtdb.firebaseio.com/currentlistings.json`
       );
 
-      const currentListingsJSONP = await currentListings.json();
+      const currentListingsJSONP = await currentListingsP.json();
       const currentListingsArrayP = Object.values(currentListingsJSONP);
       const listingKeysP = Object.keys(currentListingsJSONP);
       const listingIndexP = currentListingsArrayP.indexOf(
-        currentListingsArray.find((x) => x.title === e.target.id)
+        currentListingsArrayP.find((x) => x.title === e.target.id)
       );
+      console.log(listingKeysP[listingIndexP]);
       const deletedP = listingKeysP[listingIndexP];
+      console.log(
+        `https://houseplantdirect-default-rtdb.firebaseio.com/users/currentlistings/${deletedP}.json`
+      );
 
       await fetch(
         `https://houseplantdirect-default-rtdb.firebaseio.com/users/${userKey}/currentlistings/${deleted}.json`,
@@ -43,8 +49,9 @@ const MyListings = (props) => {
           method: "DELETE",
         }
       );
+
       await fetch(
-        `https://houseplantdirect-default-rtdb.firebaseio.com/users/currentlistings/${deletedP}.json`,
+        `https://houseplantdirect-default-rtdb.firebaseio.com/currentlistings/${deletedP}.json`,
         {
           method: "DELETE",
         }

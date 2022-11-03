@@ -18,7 +18,8 @@ const HomePage = () => {
         </Link>
       </div>
 
-      <BriefPlants />
+      {/* <BriefPlants /> */}
+      {/* removed for aesthetic reasons */}
     </>
   );
 };

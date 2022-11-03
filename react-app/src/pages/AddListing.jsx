@@ -54,6 +54,7 @@ const AddListing = () => {
             price: e.target[2].value,
             endingdate: e.target[3].value,
             description: e.target[4].value,
+            username: userName,
           };
           uploadData(listingupdated);
           setIsLoading(false);
@@ -147,6 +148,8 @@ const AddListing = () => {
                 id="price"
                 type="number"
                 placeholder="$69"
+                min="0"
+                max="10000"
                 required
               ></input>
               <label htmlFor="endingdate">Ending Date:</label>

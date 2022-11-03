@@ -20,16 +20,20 @@ const Listings = () => {
     <div className="listings">
       {/* <h2></h2> */}
       <div className="listing-grid">
-        {listingArray.map((element) => (
-          <PlantCardListingPage
-            name={element.title}
-            price={element.price}
-            time={element.endingdate}
-            img={element.image}
-            user="carl363"
-            key={element.title}
-          />
-        ))}
+        {listingArray.length === 0 ? (
+          <h3 className="subheading">No Current Auctions</h3>
+        ) : (
+          listingArray.map((element) => (
+            <PlantCardListingPage
+              name={element.title}
+              price={element.price}
+              time={element.endingdate}
+              img={element.image}
+              user={element.username}
+              key={element.title}
+            />
+          ))
+        )}
       </div>
     </div>
   );
