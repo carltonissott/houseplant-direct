@@ -80,7 +80,7 @@ const MyAccount = () => {
               />
             ))}
 
-          <Link to="/addlisting">
+          <Link to="/houseplant-direct/addlisting">
             <button className="hero-button">+Add Listing</button>
           </Link>
         </div>

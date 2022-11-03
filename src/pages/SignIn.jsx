@@ -24,7 +24,7 @@ const SignIn = () => {
         if (foundUser.password === userAuth.password) {
           console.log("success!");
           dispatch(userActions.logInUser(foundUser.firstname));
-          navigate("/myaccount");
+          navigate("/houseplant-direct/myaccount");
         } else {
           e.target[1].setCustomValidity("Incorrect user/ password");
           e.target[1].reportValidity();

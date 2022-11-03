@@ -60,7 +60,7 @@ const AddListing = () => {
           };
           uploadData(listingupdated);
           setIsLoading(false);
-          navigate("/myaccount");
+          navigate("/houseplant-direct/myaccount");
         });
       }
     );

@@ -7,28 +7,28 @@ const Header = () => {
 
   return (
     <header>
-      <Link id="logo" to="/">
+      <Link id="logo" to="/houseplant-direct">
         <img src={logo} alt="houseplant logo" />
       </Link>
       <div className="navigation">
-        <NavLink className="header-link" to="listings">
+        <NavLink className="header-link" to="/houseplant-direct/listings">
           Current Auctions
         </NavLink>
 
-        <NavLink className="header-link" to="faq">
+        <NavLink className="header-link" to="/houseplant-direct/faq">
           FAQ
         </NavLink>
-        <NavLink className="header-link" to="about">
+        <NavLink className="header-link" to="/houseplant-direct/about">
           Sell
         </NavLink>
       </div>
       {userStatus && (
-        <NavLink to="/myaccount">
+        <NavLink to="/houseplant-direct/myaccount">
           <button className="hero-button">My Account</button>
         </NavLink>
       )}
       {!userStatus && (
-        <NavLink to="signup">
+        <NavLink to="/houseplant-directsignup">
           <button className="hero-button">+ Sign Up</button>
         </NavLink>
       )}

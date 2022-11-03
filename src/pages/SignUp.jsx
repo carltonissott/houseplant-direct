@@ -25,7 +25,7 @@ const SignUp = () => {
       );
     };
     addUser(user);
-    navigate("/");
+    navigate("/houseplant-direct/");
   };
 
   return (
@@ -48,7 +48,7 @@ const SignUp = () => {
 
         <p>
           Already have an account?{" "}
-          <Link id="signup-signin" to="/signin">
+          <Link id="signup-signin" to="/houseplant-direct/signin">
             Sign in here.
           </Link>
         </p>

@@ -13,7 +13,7 @@ const HomePage = () => {
           The newest way to auction and buy plants online with no fees, insured
           shipping, and a money-back guarantee.{" "}
         </h5>
-        <Link to="/listings">
+        <Link to="/houseplant-direct/listings">
           <button className="hero-button">See current plants</button>
         </Link>
       </div>

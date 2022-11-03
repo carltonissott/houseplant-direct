@@ -16,15 +16,15 @@ function App() {
     <div className="app">
       <Header />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/faq" element={<FAQ />} />
-        <Route path="/listings" element={<Listings />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/myaccount" element={<MyAccount />} />
-        <Route path="/addlisting" element={<AddListing />} />
-        <Route path="/listings/:producttitle" element={<ListingPage/>}/>
+        <Route path="/houseplant-direct/" element={<HomePage />} />
+        <Route path="/houseplant-direct/faq" element={<FAQ />} />
+        <Route path="/houseplant-direct/listings" element={<Listings />} />
+        <Route path="/houseplant-direct/about" element={<About />} />
+        <Route path="/houseplant-direct/signup" element={<SignUp />} />
+        <Route path="/houseplant-direct/signin" element={<SignIn />} />
+        <Route path="/houseplant-direct/myaccount" element={<MyAccount />} />
+        <Route path="/houseplant-direct/addlisting" element={<AddListing />} />
+        <Route path="/houseplant-direct/listings/:producttitle" element={<ListingPage/>}/>
       </Routes>
       {/* <Footer /> */}
     </div>
