@@ -22,6 +22,7 @@ const ListingPage = () => {
       endingdate: listingArray.endingdate,
       title: listingArray.title,
       highestbidder: userName,
+      userName,
     };
     const updateListing = async () => {
       await fetch(
