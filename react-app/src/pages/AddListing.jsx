@@ -15,7 +15,6 @@ const AddListing = () => {
   const onSubmitHandler = (e) => {
     setIsLoading(true);
     e.preventDefault();
-    console.log(e);
     const listing = {
       title: e.target[0].value,
       image: e.target[1].files[0],
@@ -79,6 +78,16 @@ const AddListing = () => {
 
       await fetch(
         `https://houseplantdirect-default-rtdb.firebaseio.com/users/${userKey}/currentlistings.json`,
+        {
+          method: "POST",
+          body: JSON.stringify(listingupdated),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      await fetch(
+        `https://houseplantdirect-default-rtdb.firebaseio.com/currentlistings.json`,
         {
           method: "POST",
           body: JSON.stringify(listingupdated),

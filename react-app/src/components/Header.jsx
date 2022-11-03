@@ -14,13 +14,11 @@ const Header = () => {
         <NavLink className="header-link" to="listings">
           Current Auctions
         </NavLink>
-        <NavLink className="header-link" to="about">
-          About
-        </NavLink>
+
         <NavLink className="header-link" to="faq">
           FAQ
         </NavLink>
-        <NavLink className="header-link" to="sell">
+        <NavLink className="header-link" to="about">
           Sell
         </NavLink>
       </div>

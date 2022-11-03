@@ -9,10 +9,9 @@ const MyAccount = () => {
   const userName = useSelector((state) => state.user.firstname);
   const [currentListings, setCurrentListings] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [deleteListing, setDeleteListing] = useState("");
   const dispatch = useDispatch();
-  const loadStatusHandler = ()=>{
-    setLoading(true)
-  }
+
   const logoutHandler = () => {
     dispatch(userActions.logOutUser());
   };
@@ -46,7 +45,7 @@ const MyAccount = () => {
       clearTimeout(timer1);
       setLoading(false);
     };
-  }, [userName]);
+  }, [userName, deleteListing]);
 
   if (!userStatus) {
     return (
@@ -66,9 +65,10 @@ const MyAccount = () => {
         <div className="my-listings">
           <h3 className="subheading">My Listings:</h3>
           {loading === false && <h3 className="subheading">Loading...</h3>}
-          {currentListings.length === 0 ? (
+          {loading === true && currentListings.length === 0 && (
             <h3 className="subheading">No listings! Add one below!</h3>
-          ) : (
+          )}
+          {loading === true &&
             currentListings.map((item) => (
               <MyListings
                 key={item.title}
@@ -77,10 +77,9 @@ const MyAccount = () => {
                 price={item.price}
                 ending={item.endingdate}
                 img={item.image}
-
+                onLoading = {e=>setDeleteListing(e)}
               />
-            ))
-          )}
+            ))}
 
           <Link to="/addlisting">
             <button className="hero-button">+Add Listing</button>

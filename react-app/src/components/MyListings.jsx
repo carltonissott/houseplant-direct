@@ -33,6 +33,7 @@ const MyListings = (props) => {
       );
     };
     myListings();
+    props.onLoading(props.title)
   };
 
   return (

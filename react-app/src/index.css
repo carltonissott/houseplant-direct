@@ -22,7 +22,7 @@ footer {
 
 header {
   display: grid;
-  grid-template-columns: 6fr 3fr 1.5fr;
+  grid-template-columns: 7fr 2.4fr 1.5fr;
   color: white;
   text-align: center;
   align-items: center;
@@ -242,7 +242,7 @@ header img {
   background-color: #292e2c;
   border-radius: 10px;
   display: flex;
-
+  align-items: center;
   box-shadow: 1px -2px 22px -4px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 1px -2px 22px -4px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 1px -2px 22px -4px rgba(0, 0, 0, 0.75);
@@ -287,6 +287,11 @@ header img {
   text-decoration: underline;
 }
 
+.empty{
+  width: 100%;
+  display: flex;
+}
+
 .listing-price {
   color: white;
   font-weight: 400;
@@ -294,14 +299,13 @@ header img {
   padding: 10px;
   background-color: #67b688;
   border-radius: 20px;
-  margin: 10px;
+  margin: -25px 0px;
+  position: relative;
+  top: 50px;
+  left: 25px;
 }
 
-.user-description-listing {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+
 
 .listing-time {
   color: #ffffff;
@@ -342,8 +346,6 @@ header img {
   /* padding: 10px; */
   visibility: hidden;
 }
-
-
 
 .signup-form input {
   height: 30px;
@@ -437,7 +439,7 @@ textarea {
   border-radius: 10px;
 }
 
-.deleteicon{
+.deleteicon {
   cursor: pointer;
 }
 
@@ -452,12 +454,11 @@ textarea {
   font-weight: 300;
 }
 
-.listing-form label{
+.listing-form label {
   padding-top: 10px;
-  
 }
 
-#loading{
+#loading {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -466,8 +467,83 @@ textarea {
   background-color: white;
 }
 
-#loadingicon{
+#loadingicon {
   width: 50px;
   height: 50px;
-  
+}
+
+.time-display {
+  display: flex;
+  background-color: white;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin: 5px;
+}
+.time-display h5 {
+  padding: 3px;
+  margin: 0;
+}
+
+.listing-title{
+  color: white;
+  /* text-decoration: none; */
+  text-transform: capitalize;
+}
+.listingpage{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.listingpage-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  width: 50%;
+
+  background-color: white;
+  margin-bottom: 100px;
+}
+
+.listingpage-div h2{
+  font-size: 50px;
+  text-transform: capitalize;
+}
+.listingpage-div img{
+  width: 500px;
+}
+.listingpage-description{
+  margin: 10px 30px 20px ;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.listingpage-bid{
+  display: flex;
+}
+
+.listingpage-div input{
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px;
+  font-size: 20px;
+}
+
+.listingpage-div button{
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px;
+  color: white;
+  border-style: none;
+  cursor: pointer;
+  background-color: #40b671;
+  font-weight:500;
+  font-size: 20px;
+}
+.listingpage-div button:hover{
+  background-color: #67b688;
 }

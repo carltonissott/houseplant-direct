@@ -1,7 +1,8 @@
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { userActions } from "../store/userSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { base64urlEncodeWithoutPadding } from "@firebase/util";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -26,11 +27,19 @@ const SignIn = () => {
           dispatch(userActions.logInUser(foundUser.firstname));
           navigate("/myaccount");
         } else {
-          console.log("no");
+          e.target[1].setCustomValidity("Incorrect user/ password");
+          e.target[1].reportValidity();
         }
+      } else {
+        e.target[0].setCustomValidity("No account found with this email");
+        e.target[0].reportValidity();
       }
     };
     fetchUser(userAuth);
+  };
+
+  const onChangeHandler = (e) => {
+    e.target.setCustomValidity("");
   };
 
   return (
@@ -38,9 +47,21 @@ const SignIn = () => {
       <h3>Sign in: </h3>
       <form onSubmit={onSubmitHandler} className="signup-form">
         <label htmlFor="email">Email:</label>
-        <input id="email" type="email" placeholder="Email" required />
+        <input
+          onChange={onChangeHandler}
+          id="email"
+          type="email"
+          placeholder="Email"
+          required
+        />
         <label htmlFor="password">Password:</label>
-        <input id="password" type="password" placeholder="Password" required />
+        <input
+          onChange={onChangeHandler}
+          id="password"
+          type="password"
+          placeholder="Password"
+          required
+        />
         <button className="signupbutton">Sign In:</button>
 
         <p>
