@@ -28,7 +28,7 @@ const Header = () => {
         </NavLink>
       )}
       {!userStatus && (
-        <NavLink to="/houseplant-directsignup">
+        <NavLink to="/houseplant-direct/signup">
           <button className="hero-button">+ Sign Up</button>
         </NavLink>
       )}
