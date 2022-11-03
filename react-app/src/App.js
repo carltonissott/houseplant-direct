@@ -9,6 +9,7 @@ import SignIn from "./pages/SignIn";
 import MyAccount from "./pages/MyAccount";
 import AddListing from "./pages/AddListing";
 import ListingPage from "./pages/ListingPage";
+import FAQ from "./pages/FAQ";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/faq" element={<FAQ />} />
         <Route path="/listings" element={<Listings />} />
         <Route path="/about" element={<About />} />
         <Route path="/signup" element={<SignUp />} />
