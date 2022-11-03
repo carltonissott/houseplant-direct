@@ -45,7 +45,7 @@ const SignIn = () => {
     <div className="signup-div">
       <h3>Sign in: </h3>
       <form onSubmit={onSubmitHandler} className="signup-form">
-        <label htmlFor="email">Email:</label>
+        <label id="emaillabel" htmlFor="email">Email:</label>
         <input
           onChange={onChangeHandler}
           id="email"
