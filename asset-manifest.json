@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/houseplant-direct/static/css/main.85838804.css",
+    "main.js": "/houseplant-direct/static/js/main.5ee980a0.js",
+    "static/media/loading.gif": "/houseplant-direct/static/media/loading.ef68c9c784b761436d36.gif",
+    "static/media/logo.png": "/houseplant-direct/static/media/logo.b0af593775ea28d4f57d.png",
+    "static/media/getpaid.svg": "/houseplant-direct/static/media/getpaid.cc37a74c0c9190df73bcbb3766416c88.svg",
+    "static/media/addpost.svg": "/houseplant-direct/static/media/addpost.67d8658ba6de60f0a387c1a5f3596a5e.svg",
+    "static/media/signup.svg": "/houseplant-direct/static/media/signup.b80e07f914b060b8a488925a4212c8b6.svg",
+    "index.html": "/houseplant-direct/index.html",
+    "main.85838804.css.map": "/houseplant-direct/static/css/main.85838804.css.map",
+    "main.5ee980a0.js.map": "/houseplant-direct/static/js/main.5ee980a0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.85838804.css",
+    "static/js/main.5ee980a0.js"
+  ]
+}
