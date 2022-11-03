@@ -287,7 +287,7 @@ header img {
   text-decoration: underline;
 }
 
-.empty{
+.empty {
   width: 100%;
   display: flex;
 }
@@ -304,8 +304,6 @@ header img {
   top: 50px;
   left: 25px;
 }
-
-
 
 .listing-time {
   color: #ffffff;
@@ -486,18 +484,18 @@ textarea {
   margin: 0;
 }
 
-.listing-title{
+.listing-title {
   color: white;
   /* text-decoration: none; */
   text-transform: capitalize;
 }
-.listingpage{
+.listingpage {
   display: flex;
   width: 100%;
   justify-content: center;
 }
 
-.listingpage-div{
+.listingpage-div {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -509,31 +507,41 @@ textarea {
   margin-bottom: 100px;
 }
 
-.listingpage-div h2{
+.listingpage-div h2 {
   font-size: 50px;
   text-transform: capitalize;
 }
-.listingpage-div img{
+.listingpage-div img {
   width: 500px;
+  border-radius: 20px;
 }
-.listingpage-description{
-  margin: 10px 30px 20px ;
+.listingpage-description {
+  margin: 10px 30px 20px;
   font-weight: 400;
   font-size: 20px;
 }
 
-.listingpage-bid{
+.listingpage-bid {
   display: flex;
+  margin: 10px 0px;
 }
-
-.listingpage-div input{
+.listingpage-div p {
+  margin: 10px 5px;
+  font-weight: 400;
+}
+.listingpage-about {
+  margin: 10px 5px;
+  font-weight: 300;
+  font-size: 45px;
+}
+.listingpage-div input {
   border-radius: 10px;
   padding: 10px;
   margin: 5px;
   font-size: 20px;
 }
 
-.listingpage-div button{
+.listingpage-div button {
   border-radius: 10px;
   padding: 10px;
   margin: 5px;
@@ -541,9 +549,37 @@ textarea {
   border-style: none;
   cursor: pointer;
   background-color: #40b671;
-  font-weight:500;
+  font-weight: 500;
   font-size: 20px;
 }
-.listingpage-div button:hover{
+.listingpage-div button:hover {
   background-color: #67b688;
+}
+.listingpage-countdown {
+  background-color: #40b671;
+  color: white;
+  font-size: 30px;
+  border-radius: 20px;
+  padding: 10px;
+  font-weight: 300;
+  margin: 0;
+}
+.listingpage-layout-image {
+  display: flex;
+  padding: 10px 50px 50px;
+}
+.listingpage-layout-contents {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+.listingpage-price {
+  font-size: 35px;
+  margin: 10px 5px;
+  font-weight: 300;
+}
+.listingpage-bidder{
+  font-size: 20px;
+  margin: 10px 5px;
+  font-weight: 400;
 }

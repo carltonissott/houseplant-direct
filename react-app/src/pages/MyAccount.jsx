@@ -63,12 +63,11 @@ const MyAccount = () => {
           </h3>
         </div>
         <div className="my-listings">
-          <h3 className="subheading">My Listings:</h3>
           {loading === false && <h3 className="subheading">Loading...</h3>}
           {loading === true && currentListings.length === 0 && (
             <h3 className="subheading">No listings! Add one below!</h3>
           )}
-          {loading === true &&
+          {loading === true && <h3 className="subheading">My Listings:</h3> &&
             currentListings.map((item) => (
               <MyListings
                 key={item.title}
@@ -77,7 +76,7 @@ const MyAccount = () => {
                 price={item.price}
                 ending={item.endingdate}
                 img={item.image}
-                onLoading = {e=>setDeleteListing(e)}
+                onLoading={(e) => setDeleteListing(e)}
               />
             ))}
 

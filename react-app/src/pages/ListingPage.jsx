@@ -9,9 +9,11 @@ const ListingPage = () => {
 
   const [listingArray, setListingArray] = useState([]);
   const [listingKey, setListingKey] = useState("");
+  const [updating, setUpdating] = useState(false);
 
   const increaseBidHandler = (e) => {
     e.preventDefault();
+    setUpdating(true)
     const updatedListing = {
       price: e.target[0].value,
       image: listingArray.image,
@@ -31,6 +33,7 @@ const ListingPage = () => {
           },
         }
       );
+      setUpdating(false)
     };
     updateListing(updatedListing);
   };
@@ -46,7 +49,7 @@ const ListingPage = () => {
       setListingArray(array[index]);
     };
     fetchListings();
-  }, []);
+  }, [updating]);
 
   const endingDate = new Date([listingArray.endingdate]);
 
@@ -74,34 +77,44 @@ const ListingPage = () => {
     <div className="listingpage">
       <div className="listingpage-div">
         <h2>{listingArray.title}</h2>
-        <img src={listingArray.image} alt="listing" />
-        <h3>Current Price: ${listingArray.price}</h3>
-        <div className="listingpage-bid">
-          {!userStatus ? (
-            <p>Please log in to bid.</p>
-          ) : (
-            <form onSubmit={increaseBidHandler}>
-              <input
-                type="number"
-                placeholder="enter bid"
-                required
-                min={listingArray.price}
-                max={listingArray.price + 2000}
-              />
-              <button>submit</button>
-            </form>
-          )}
+
+        <div className="listingpage-layout-image">
+          <img src={listingArray.image} alt="listing" />
+          <div className="listingpage-layout-contents">
+            {timeCountdown && (
+              <h3 className="listingpage-countdown ">
+                Ends in: {timeCountdown.days} days {timeCountdown.hours} hours{" "}
+                {timeCountdown.minutes} minutes {timeCountdown.seconds} seconds
+              </h3>
+            )}
+            <h3 className="listingpage-price">
+              Current Price: ${listingArray.price}
+            </h3>
+            {/* {!listingArray.highestbidder== "" && <h3 className="listingpage-bidder">Highest Bidder: {listingArray.highestbidder}</h3>} */}
+
+            <div className="listingpage-bid">
+              {!userStatus ? (
+                <p>Please log in to bid.</p>
+              ) : (
+                <form onSubmit={increaseBidHandler}>
+                  <input
+                    type="number"
+                    placeholder="enter bid"
+                    required
+                    min={listingArray.price}
+                    max={parseFloat(listingArray.price) + 2000}
+                  />
+                  <button>submit</button>
+                </form>
+              )}
+            </div>
+
+            <h3 className="listingpage-about">About the plant:</h3>
+            <p className="listingpage-description">
+              {listingArray.description}
+            </p>
+          </div>
         </div>
-        <h3>{listingArray.highestbidder}</h3>
-        {timeCountdown && (
-          <h3>
-            Ends in: {timeCountdown.days} days
-            {timeCountdown.hours} hours
-            {timeCountdown.minutes} minutes
-            {timeCountdown.seconds} seconds
-          </h3>
-        )}
-        <p className="listingpage-description">{listingArray.description}</p>
       </div>
     </div>
   );

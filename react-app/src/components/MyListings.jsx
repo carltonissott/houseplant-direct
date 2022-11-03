@@ -17,6 +17,7 @@ const MyListings = (props) => {
       const currentListings = await fetch(
         `https://houseplantdirect-default-rtdb.firebaseio.com/users/${userKey}/currentlistings.json`
       );
+
       const currentListingsJSON = await currentListings.json();
       const currentListingsArray = Object.values(currentListingsJSON);
       const listingKeys = Object.keys(currentListingsJSON);
@@ -24,6 +25,17 @@ const MyListings = (props) => {
         currentListingsArray.find((x) => x.title === e.target.id)
       );
       const deleted = listingKeys[listingIndex];
+      const currentListingsP = await fetch(
+        `https://houseplantdirect-default-rtdb.firebaseio.com/users/${userKey}/currentlistings.json`
+      );
+
+      const currentListingsJSONP = await currentListings.json();
+      const currentListingsArrayP = Object.values(currentListingsJSONP);
+      const listingKeysP = Object.keys(currentListingsJSONP);
+      const listingIndexP = currentListingsArrayP.indexOf(
+        currentListingsArray.find((x) => x.title === e.target.id)
+      );
+      const deletedP = listingKeysP[listingIndexP];
 
       await fetch(
         `https://houseplantdirect-default-rtdb.firebaseio.com/users/${userKey}/currentlistings/${deleted}.json`,
@@ -31,9 +43,15 @@ const MyListings = (props) => {
           method: "DELETE",
         }
       );
+      await fetch(
+        `https://houseplantdirect-default-rtdb.firebaseio.com/users/currentlistings/${deletedP}.json`,
+        {
+          method: "DELETE",
+        }
+      );
     };
     myListings();
-    props.onLoading(props.title)
+    props.onLoading(props.title);
   };
 
   return (
@@ -41,7 +59,7 @@ const MyListings = (props) => {
       <img className="listing-image" src={props.img} />
       <h3>{props.title}</h3>
       <p>{props.description}</p>
-      <h4>{props.price}</h4>
+      <h4>Starting Price: ${props.price}</h4>
       <h4>{props.ending}</h4>
       <img
         src="https://img.icons8.com/material-two-tone/38/000000/delete-sign.png"
