@@ -1,4 +1,4 @@
-import BriefPlants from "../components/BriefPlants";
+// import BriefPlants from "../components/BriefPlants";
 import { Link } from "react-router-dom";
 
 const HomePage = () => {

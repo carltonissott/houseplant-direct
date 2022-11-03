@@ -139,6 +139,7 @@ header img {
 .plant-modal::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
   border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
 }
 
 .plant-modal::-webkit-scrollbar-thumb {
@@ -515,6 +516,8 @@ textarea {
 .listingpage-div img {
   width: 500px;
   border-radius: 20px;
+  object-fit: cover;
+  object-position: right;
 }
 .listingpage-description {
   margin: 10px 30px 20px;

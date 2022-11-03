@@ -63,7 +63,7 @@ const MyListings = (props) => {
 
   return (
     <div className="my-listing-card">
-      <img className="listing-image" src={props.img} />
+      <img className="listing-image" alt={props.title} src={props.img} />
       <h3>{props.title}</h3>
       <p>{props.description}</p>
       <h4>Starting Price: ${props.price}</h4>

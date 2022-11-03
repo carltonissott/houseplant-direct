@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -49,15 +50,16 @@ const ListingPage = () => {
       setListingArray(array[index]);
     };
     fetchListings();
-  }, [updating]);
+  }, [updating,params.producttitle]);
 
-  const endingDate = new Date([listingArray.endingdate]);
+  // const endingDate = new Date([listingArray.endingdate]); REPLACED WITH USEMEMO FOR OPTIMIZATION
+  const memorizedDate = useMemo(()=>new Date([listingArray.endingdate]),[listingArray])
 
-  const [timeLeft, setTimeLeft] = useState(endingDate - new Date().getTime());
+  const [timeLeft, setTimeLeft] = useState(memorizedDate - new Date().getTime());
   const [timeCountdown, setTimeCountdown] = useState();
   useEffect(() => {
     const timer2 = setTimeout(() => {
-      setTimeLeft(endingDate - new Date().getTime());
+      setTimeLeft(memorizedDate - new Date().getTime());
       setTimeCountdown({
         days: Math.floor(timeLeft / (1000 * 60 * 60 * 24)),
         hours: Math.floor(
@@ -71,7 +73,7 @@ const ListingPage = () => {
     return () => {
       clearTimeout(timer2);
     };
-  }, [timeLeft, endingDate]);
+  }, [timeLeft, memorizedDate]);
 
   return (
     <div className="listingpage">

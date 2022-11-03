@@ -9,8 +9,8 @@ import { useNavigate } from "react-router-dom";
 const AddListing = () => {
   const [isLoading, setIsLoading] = useState(false);
   const userName = useSelector((state) => state.user.firstname);
-  const date = new Date().toJSON().slice(0,10)
-  const navigate =  useNavigate()
+  const date = new Date().toJSON().slice(0, 10);
+  const navigate = useNavigate();
 
   const onSubmitHandler = (e) => {
     setIsLoading(true);
@@ -38,6 +38,8 @@ const AddListing = () => {
           case "running":
             console.log("Upload is running");
             break;
+          default:
+            console.log("will not upload");
         }
       },
 
@@ -58,7 +60,7 @@ const AddListing = () => {
           };
           uploadData(listingupdated);
           setIsLoading(false);
-          navigate('/myaccount')
+          navigate("/myaccount");
         });
       }
     );
@@ -115,7 +117,7 @@ const AddListing = () => {
             <h3>Add your plant!</h3>
             <div id="loading">
               <h4>Loading...</h4>
-              <img src={loading} />
+              <img src={loading} alt="loading icon" />
             </div>
           </div>
         )}
@@ -153,7 +155,13 @@ const AddListing = () => {
                 required
               ></input>
               <label htmlFor="endingdate">Ending Date:</label>
-              <input id="endingdate" type="date" min={date} max="2026-12-02" required />
+              <input
+                id="endingdate"
+                type="date"
+                min={date}
+                max="2026-12-02"
+                required
+              />
               <label htmlFor="description">Description:</label>
               <textarea
                 name="description"

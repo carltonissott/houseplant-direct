@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { userActions } from "../store/userSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { base64urlEncodeWithoutPadding } from "@firebase/util";
 
 const SignIn = () => {
   const navigate = useNavigate();
